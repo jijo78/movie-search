@@ -22,3 +22,6 @@ const SearchForm = ({
         }
     </section>
 )
+
+
+export default SearchForm;
