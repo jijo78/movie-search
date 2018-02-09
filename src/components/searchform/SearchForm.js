@@ -11,13 +11,6 @@ const SearchForm = ({
                 <input type="text" placeholder="Search for a movie..." name="name" className="search__input" />
             </fieldset>
         </form>
-        {
-            error.summary ? (
-                <p className='search__error-msg'>{error.summary }</p>
-            ):(
-                <p></p>						
-            )
-        }
     </section>
 )
 
