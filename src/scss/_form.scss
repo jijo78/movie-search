@@ -1,0 +1,35 @@
+.search{
+  border-bottom: 1px solid $turquoise;
+  margin-bottom: 2rem;
+  display: flex;
+}
+  
+.search__form{
+  width: 100%;
+  fieldset{
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+  }
+  .search__form--hidden{
+    display: none;
+  }
+}
+
+.search__input{
+  color: $extra-dark-grey;
+  width: 100%;
+  padding: 0.2rem 0;
+  font-size: 2rem;
+  border: 0 none;
+  &::placeholder {
+    color: $light-grey;
+  }
+}
+
+.search__error-msg{
+  margin: 0;
+  background-color: $dark-red;
+  padding: .75rem .75rem;
+  color: $white;
+}
