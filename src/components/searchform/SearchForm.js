@@ -1,16 +1,14 @@
 import React, {PropTypes} from 'react';
 
 const SearchForm = ({
-    onChange,
-    value,
+    onSubmit,
     error
 })=>(
     <section className="search">
-        <h1>Search for a movie...</h1>
-        <form action="" className="search__form" role="search">
+        <form action="" className="search__form" role="search" onSubmit={onSubmit}>
             <fieldset>
                 <label for="search" className="search__form--hidden">Find your movie</label>
-                <input type="text" placeholder="Search for a movie..." name="name" value={value} onChange={onChange} className="search__input"   />
+                <input type="text" placeholder="Search for a movie..." name="name" className="search__input" />
             </fieldset>
         </form>
         {
