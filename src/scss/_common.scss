@@ -7,12 +7,11 @@ body{
 ul {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
   li{
     list-style-type: none;
-    margin: 0 0 .75rem;
-    padding: .75rem;
-    display: inline-block;
-   vertical-align: top;
+    margin: 0 0 1rem;
   }
 }
 

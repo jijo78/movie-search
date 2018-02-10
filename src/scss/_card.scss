@@ -1,19 +1,104 @@
-.card{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
+
 .card__block{
-  width:20%;
   background-color: $white;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid $light-grey;
   color: $extra-dark-grey;
-  border-radius: .25rem;
   margin-right: 1rem;
   position: relative;
+  display: inline-flex;
+  vertical-align: top;
   .card__img{
     display: block;
     width: 100%;
     height: auto;
   }
 }
+
+.card__block-media{
+  flex: 0 0 33.333333%;
+  max-width: 33%
+}
+
+.card__extra-info{
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  border-top: 1px solid $light-grey;
+  left: 0;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__block-inner{
+  flex: 1 1 67.666667%;
+  padding: 0.75rem;
+  max-width: 67%;
+  flex-direction: column;
+  position: relative;
+}
+.card__title{
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+.card__description{
+  font-size: 0.8rem;
+  color: $dark-grey;
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  max-width: 400px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding-bottom: 1.3rem;
+}
+.card__release,.card__rating{
+  font-size: 0.7rem;
+  color: $light-grey;
+}
+
+@media all and (min-width: 320px) {
+  .card__block{
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 550px ) {
+  .card__block{
+    width: 46%;
+  }
+}
+
+@media all and (min-width: 60em) {
+  .card__block{
+    width: 31%;
+  }
+}
+// .card__description {
+//   overflow: hidden;
+//   position: relative;
+//   line-height: 1.2em;
+//   max-height: 6em;
+//   font-size: 0.8rem;
+//   color: $dark-grey;
+// }
+// .card__description:before {
+//   content: '...';
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+// }
+// .card__description:after {
+//   content: '';
+//   position: absolute;
+//   right: 0;
+//   width: 1em;
+//   height: 1em;
+//   margin-top: 0.2em;
+//   background: white;
+// }
