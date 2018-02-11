@@ -14,13 +14,11 @@ export default class App extends Component {
 		this.state = {
 			error : {},
 			data: [],
-			suggest: [],
 			fetching: false
 		};
 		
 		this.fetchData = this.fetchData.bind(this);
 		this.performSearch = this.performSearch.bind(this);
-		this.autoSuggest = this.autoSuggest.bind(this);
 	}
 
 	/**
@@ -39,7 +37,6 @@ export default class App extends Component {
 			console.log(response),
 			this.setState({
 				data: response.results,
-				suggest: response.results.title,
 				fetching: false
 
 			})			
@@ -48,9 +45,7 @@ export default class App extends Component {
 			errors.summary = error.message;
 		  
 			this.setState({
-				error : errors,
-				fetching: false
-
+				error : errors
 			});
 		});
 	}
@@ -65,11 +60,6 @@ export default class App extends Component {
 		this.fetchData(value.value);						
 	}
 
-	autoSuggest(e){
-		e.preventDefault();
-		this.fetchData(e.target.value)
-		console.log(this.props,this.state.suggest, this.state.data)					
-	}
 
   render() {
 		const data = this.state.data.length > 0 ? this.state.data : [];
@@ -78,7 +68,7 @@ export default class App extends Component {
 		console.log(this.state.data)
     return (
 		<main className="main">
-			<SearchForm error={error} onSubmit={this.performSearch} onClick={this.performSearch} onKeyUp={this.autoSuggest}/>
+			<SearchForm error={error} onSubmit={this.performSearch} onClick={this.performSearch}/>
 
 		{ fetching ?  
 				<Loader /> :
