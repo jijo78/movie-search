@@ -2,8 +2,12 @@ body{
   font-family: Helvetica,Arial,sans-serif;
   margin: 0;
   padding: 0;
+  background-color: $black;
 }
 
+h1{
+  color: $light-grey;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -16,8 +20,13 @@ ul {
 }
 
 .main{
-  margin: 0 auto;
+  margin: 1.5rem auto;
   max-width: 1270px;
 }
 
 
+.no-results{
+  background-color: $dark-red;
+  padding: 1rem;
+  color: $white;
+}

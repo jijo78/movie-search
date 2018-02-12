@@ -12,7 +12,7 @@ export default class App extends Component {
 		super(props);
 
 		this.state = {
-			error : {},
+			error : '',
 			data: [],
 			fetching: false
 		};
@@ -21,9 +21,14 @@ export default class App extends Component {
 		this.performSearch = this.performSearch.bind(this);
 	}
 
+	//Just fetching some initial data to display on the page.
+	componentWillMount(){
+		this.fetchData('a');
+	}
+
 	/**
-	 * 
-	 * @param {*} term 
+	 * fetchData make the call to the moviedb api.
+	 * @param {*} term value we need to pass to the query.
 	 */
 	fetchData(term = ''){
 		//set fetch to true to show the loader before request it is completed.
@@ -38,20 +43,17 @@ export default class App extends Component {
 			this.setState({
 				data: response.results,
 				fetching: false
-
 			})			
 		)).catch(error => {
-			const errors = error;
-			errors.summary = error.message;
-		  
 			this.setState({
-				error : errors
+				error : error.message,
+				fetching: false
 			});
 		});
 	}
 
 	/**
-	 * [ submit the form ]
+	 * submit the form calling fetchData with the right value.
 	 * @param  {[event]} e [event object]
 	 */
 	performSearch(e){
@@ -62,21 +64,18 @@ export default class App extends Component {
 
 
   render() {
-		const data = this.state.data.length > 0 ? this.state.data : [];
-		const error = this.state.error;
+		const data = this.state.data;
 		const fetching = this.state.fetching;
-		console.log(this.state.data)
     return (
 		<main className="main">
-			<SearchForm error={error} onSubmit={this.performSearch} onClick={this.performSearch}/>
+		<h1>Welcome to your movie search. </h1>
+		<SearchForm onSubmit={this.performSearch} onClick={this.performSearch}/>
 
-		{ fetching ?  
+			{ fetching ?  
 				<Loader /> :
-				data.length > 1 ?
 				<div>
-						<SearchResults results={data} error={error}/>
-				</div> : <p>Sorry not results found</p> 
-
+					<SearchResults results={data} />	
+				</div>
 			}
 		</main>
 	);

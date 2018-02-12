@@ -1,5 +1,5 @@
 .search{
-  border-bottom: 1px solid $turquoise;
+  border-bottom: 3px solid $light-grey;
   margin-bottom: 2rem;
   display: flex;
 }
@@ -18,7 +18,8 @@
 }
 
 .search__input{
-  color: $extra-dark-grey;
+  color: $light-grey;
+  background-color: $black;
   width: 100%;
   padding: 0.2rem 0;
   font-size: 2rem;
@@ -28,13 +29,10 @@
   }
 }
 
-.search__error-msg{
-  margin: 0;
-  background-color: $dark-red;
-  padding: .75rem .75rem;
-  color: $white;
-}
 .search__icon{
   position: absolute;
   right: 0;
+  cursor: pointer;
+  width: 2.9rem;
+  background-color: $light-grey;
 }
