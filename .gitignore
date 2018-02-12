@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/client
+/client/dist
 # misc
 .DS_Store
 
